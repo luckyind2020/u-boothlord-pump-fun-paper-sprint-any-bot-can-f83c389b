@@ -5,7 +5,7 @@
 //    return tokens somebody bought, so the price floor is the creation price. Coins
 //    bought near creation therefore have a bounded downside, and coins bought after a
 //    pump have already spent most of their upside — the median coin ends at 1.00x.
-//  * The money is in the rare violent pump: coins that reach 5x creation within 600
+//  * The money is in the rare violent pump: coins that reach 5x creation within 480
 //    slots of being created complete (14.7x) 44-52% of the time, while coins that take
 //    longer to get there almost never do. So the bot chases only young 5-10x coins,
 //    with a loose stop (fast pumps dip 12-15% before continuing) and lets the rest run
@@ -57,7 +57,7 @@ const TIERS: Tier[] = [
     name: "chase",
     entryLo: 5, entryHi: 10,
     sizeLamports: 300_000_000n, // 0.30 SOL
-    maxAgeSlots: 600, minAgeSlots: 0,
+    maxAgeSlots: 480, minAgeSlots: 0,
     minTrades: 8, minBuyers: 5, minRealSolLamports: 5n * LAMPORTS_PER_SOL,
     minBuySellRatio: 2, requireRising: true,
     stopLoss: 0.85, takeProfit1: 2.0, takeProfit2: 2.9, trail: 0.95,
@@ -70,7 +70,7 @@ const TIERS: Tier[] = [
     maxAgeSlots: Infinity, minAgeSlots: 150,
     minTrades: 5, minBuyers: 3, minRealSolLamports: 1_200_000_000n,
     minBuySellRatio: 1, requireRising: false,
-    stopLoss: 0.95, takeProfit1: 1.15, takeProfit2: 1.3, trail: 0.97,
+    stopLoss: 0.95, takeProfit1: 1.15, takeProfit2: 1.3, trail: 0.96,
     maxHoldSlots: 300,
   },
   {
@@ -80,7 +80,7 @@ const TIERS: Tier[] = [
     maxAgeSlots: Infinity, minAgeSlots: 150,
     minTrades: 5, minBuyers: 3, minRealSolLamports: 1_200_000_000n,
     minBuySellRatio: 1, requireRising: false,
-    stopLoss: 0.95, takeProfit1: 1.15, takeProfit2: 1.3, trail: 0.97,
+    stopLoss: 0.95, takeProfit1: 1.15, takeProfit2: 1.3, trail: 0.96,
     maxHoldSlots: 300,
   },
   {
@@ -90,7 +90,7 @@ const TIERS: Tier[] = [
     maxAgeSlots: Infinity, minAgeSlots: 150,
     minTrades: 5, minBuyers: 3, minRealSolLamports: 1_200_000_000n,
     minBuySellRatio: 1, requireRising: false,
-    stopLoss: 0.95, takeProfit1: 1.12, takeProfit2: 1.25, trail: 0.97,
+    stopLoss: 0.95, takeProfit1: 1.12, takeProfit2: 1.25, trail: 0.96,
     maxHoldSlots: 300,
   },
 ];
